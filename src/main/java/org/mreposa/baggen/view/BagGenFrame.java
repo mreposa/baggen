@@ -1,6 +1,5 @@
 package org.mreposa.baggen.view;
 
-import com.sun.source.doctree.SystemPropertyTree;
 import org.mreposa.baggen.GiantBagGenerator;
 import org.mreposa.baggen.bagitem.GiantBagItem;
 
@@ -22,7 +21,6 @@ public class BagGenFrame extends JFrame implements ActionListener {
     private static final int MAX_AREA_COUNT = 12;
 
     private final JMenuBar menuBar;
-    private final JFrame frame;
     private final ArrayList<JEditorPane> displayAreas = new ArrayList<JEditorPane>();
     private int bagCount = 1;
 
@@ -34,8 +32,6 @@ public class BagGenFrame extends JFrame implements ActionListener {
         JPanel buttonPanel;
         JButton generateButton;
         ButtonGroup buttonGroup;
-
-        this.frame = this;
 
         this.setTitle(APP_TITLE);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -136,7 +132,7 @@ public class BagGenFrame extends JFrame implements ActionListener {
      * Shut down the application
      */
     private void exitApp() {
-        this.frame.dispose();
+        this.dispose();
         System.exit(0);
     }
 
@@ -162,6 +158,6 @@ public class BagGenFrame extends JFrame implements ActionListener {
     }
 
     private void showAbout() {
-        JOptionPane.showMessageDialog(this.frame, ABOUT_MESSAGE, "About", JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(this, ABOUT_MESSAGE, "About", JOptionPane.PLAIN_MESSAGE);
     }
 }
